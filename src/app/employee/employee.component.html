@@ -1,0 +1,135 @@
+<div class="container">
+ <form [formGroup]="employeeForm">
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width" appearance="fill" style="width:100%; margin-top: 30px;">
+                <mat-label> Firstname</mat-label>
+                <input matInput type="text" formControlName="FirstName">
+                <mat-error> Firstname is required</mat-error>
+              </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width" appearance="fill" style="width:100%; margin-top: 30px;">
+                <mat-label>MiddleName</mat-label>
+                <input matInput type="text" formControlName="MiddleName">
+                 <mat-error> MiddleName is required</mat-error>
+              </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width" appearance="fill" style="width:100%; margin-top: 30px;">
+                <mat-label>LastName</mat-label>
+                <input matInput type="text" formControlName="LastName">
+                <mat-error> LastName is required</mat-error>
+              </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width" appearance="fill" style="width:100%; margin-top: 30px">
+            <mat-label>Email Id </mat-label>
+            <input matInput type="text" formControlName="EmailId">
+            <mat-error *ngIf="employeeForm.get('EmailId')!.errors!==null &&  employeeForm.get('EmailId')!.errors!['required']">
+                
+                Gmail is required </mat-error>
+              
+                <!-- <mat-error *ngIf="!employeeForm.get('EmailId')!.errors!==null &&  employeeForm.get('EmailId')!.errors!['emailmismatch']"> Invalid Gmail
+       
+               </mat-error> -->
+            
+            
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width" appearance="fill" style="width:100%; margin-top: 30px;">
+                <mat-label> ContactNumber</mat-label>
+                <input matInput type="text" formControlName="ContactNumber">
+                <mat-error
+                  *ngIf="employeeForm.get('ContactNumber')!.errors!==null &&   employeeForm.get('ContactNumber')!.errors!['minlength']">
+                  Pincode must be greater than 1.
+                </mat-error>
+                <mat-error
+                  *ngIf="employeeForm.get('ContactNumber')!.errors!==null &&  employeeForm.get('ContactNumber')!.errors!['maxlength']">
+                  Pincode must be less than 6.
+                </mat-error>
+                <mat-error
+                  *ngIf="employeeForm.get('ContactNumber')!.errors!==null &&   employeeForm.get('ContactNumber')!.errors!['required']">
+                  Pincode is required
+                </mat-error>       
+    </mat-form-field> 
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width" appearance="fill" style="width:100%; margin-top: 30px;">
+                <mat-label>Gender</mat-label>
+                <input matInput type="" formControlName="Gender">
+            <mat-radio-group aria-label="Select an option" >
+                <mat-radio-button value="Male">male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+              </mat-radio-group>
+            </mat-form-field>
+              
+
+            
+              
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width" appearance="fill" style="width:100%; margin-top: 30px;">
+                <mat-label>Enter a date range</mat-label>
+                <input matInput type="text" formControlName="DOB">
+                <mat-date-range-input [rangePicker]="picker">
+                  <input matStartDate placeholder="Start date">
+                  <input matEndDate placeholder="End date">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field> 
+        </div>
+       <div class="col-md-4">
+        <mat-form-field class="example-full-width" appearance="fill" style="width:100%; margin-top: 30px;">
+             <mat-label> EmployeeType</mat-label>
+            <mat-select id="employeeType" formControlName="EmployeeType">
+                <mat-option value="Contract">Contract</mat-option>
+                <mat-option value="Permanent">Permanent</mat-option>
+            </mat-select>
+           </mat-form-field> 
+
+       </div>
+       <div class="col-md-4">
+        <mat-form-field class="example-full-width" appearance="fill" style="width:100%; margin-top: 30px;">
+            <mat-label>Address</mat-label>
+            <input matInput type="text" formControlName="Address">
+            <mat-error> Address is required</mat-error>
+           
+           
+          </mat-form-field>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width" appearance="fill" style="width: 100%; margin-top:30px">
+                <mat-label>Pincode</mat-label>
+                <input matInput type="text" formControlName="Pincode">
+                <mat-error
+                *ngIf="employeeForm.get('Pincode')!.errors!==null &&  employeeForm.get('Pincode')!.errors!['minlength']">
+                Pincode must be greater than 1.
+              </mat-error>
+              <mat-error
+                *ngIf="employeeForm.get('Pincode')!.errors!==null &&   employeeForm.get('Pincode')!.errors!['maxlength']">
+                Pincode must be less than 6.
+              </mat-error>
+              <mat-error
+                *ngIf="employeeForm.get('Pincode')!.errors!==null &&  employeeForm.get('Pincode')!.errors!['required']">
+                Pincode is required
+              </mat-error> 
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="text-center">
+        <button mat-button style="background-color: green; color:#EEEEEE;width: 100px;">Save</button>
+    </div>
+
+ </form>
+</div> 

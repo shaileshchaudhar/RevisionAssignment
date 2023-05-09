@@ -1,0 +1,31 @@
+<h1 class="mx-5 my-2">Employee List</h1>
+<table mat-table [dataSource]="employeeList1" class="mat-elevation-z8 my-3" style="width:100%;">
+    <ng-container matColumnDef="SrNo">
+        <th mat-header-cell *matHeaderCellDef>SrNo</th>
+        <td mat-cell *matCellDef="let element"> {{element.SrNo}} </td>
+      </ng-container>
+      <ng-container matColumnDef="FullName">
+        <th mat-header-cell *matHeaderCellDef> FullName</th>
+        <td mat-cell *matCellDef="let element"> {{element.FullName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="EmailId">
+        <th mat-header-cell *matHeaderCellDef> EmailId </th>
+        <td mat-cell *matCellDef="let element"> {{element.EmailId}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ContactNumber">
+        <th mat-header-cell *matHeaderCellDef>ContactNumber</th>
+        <td mat-cell *matCellDef="let element"> {{element.ContactNumber}} </td>
+    </ng-container>
+    <ng-container matColumnDef="DOB">
+        <th mat-header-cell *matHeaderCellDef> DOB</th>
+        <td mat-cell *matCellDef="let element"> {{element.DOB}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+</table>
